@@ -1,9 +1,12 @@
 package com.example.accessingdatajpa.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 public class TotalResultDTO {
 
+    @JsonProperty("userList")
     List<CustomerDTO> customerDTOList;
     Integer total;
 
