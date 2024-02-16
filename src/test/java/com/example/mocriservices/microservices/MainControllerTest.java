@@ -35,7 +35,7 @@ public class MainControllerTest {
     private CustomerRepository customerRepository;
 
     @AfterEach
-    private void cleanDatabase(){
+    public void cleanDatabase(){
         customerRepository.deleteAll();
     }
 
