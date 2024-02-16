@@ -5,7 +5,10 @@ import com.example.accessingdatajpa.CustomerRepository;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
@@ -18,6 +21,7 @@ import org.springframework.test.context.ActiveProfiles;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @ActiveProfiles("ci")
 public class MainControllerTest {
 
@@ -43,6 +47,7 @@ public class MainControllerTest {
     }
 
     @Test
+    @Order(1)
     public void demoAll_whenThereIsOneUser_returnThatUser(){
         customerRepository.save(new Customer("Nathan", "Franco"));
 
